@@ -47,7 +47,7 @@ Matrix (int m){
 	for (int i=0; i<rows; i++){
 		matr[i] = new int [cols];
 		for (int j=0; j<cols; j++){
-		matr[i],[j] = 0;	
+		matr[i][j] = 0;	
 }
 }
 }
@@ -59,7 +59,7 @@ Matrix (int m){
 void getMatr(){
     for (int i = 0; i<rows; i++){
 		for (int j = 0; j<cols; j++){
-			cout << matr[i],[j] << ' ';
+			cout << matr[i][j] << ' ';
 			cout << endl;
    }}}
  
@@ -67,9 +67,10 @@ void setMatr(){
     cout << "Enter " << rows << 'x' << cols << " numbers of array across the space: " << endl;
         for (int i=0; i<rows; i++){
 			for (int j=0; j<cols; j++){
-            cin >> matr[i],[j];
+            cin >> matr[i][j];
  
-}}};
+			}}}
+};
 	
 int main()
 {
