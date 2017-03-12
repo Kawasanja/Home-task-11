@@ -1,7 +1,7 @@
-
 #include <cstdlib>
 #include <iomanip>
 #include <iostream>
+#include <algorithm>
 using namespace std;
 
 
@@ -20,7 +20,7 @@ Array (int n){
 	}
 }
 
-~Array(){
+virtual ~Array(){
 	if(arr != NULL)
 	delete [] arr;
 	} 
@@ -34,18 +34,32 @@ void getArr(){
  
 void setArr(){
 	
-    cout << "Enter " << cols << " the size: " << endl;
+    cout << "Enter " << cols << " numbers of array: " << endl;
         for(int i = 0; i<cols; i++)
             cin >> arr[i];
     }
 
+virtual void f(){
+	cout << "New array is: " << endl;   
+    int  i = 0;
+    for(int x = 0; x<cols; x++)
+        if (0 == count(arr, arr+i, arr[x])){
+            arr[i++] = arr[x];}
+ 
+    for(int x = 0; x<i; x++){
+        cout << arr[x] << ' ';}
+        cout << endl; 
+	}
+	
 };
 
 
 class Matrix: public Array {
 public:
 	int ** matr;
-	int rows, cols;
+	int rows;
+	int cols;
+	
 public:
 	
 Matrix (int m){
@@ -74,25 +88,42 @@ void getMatr(){
   }
  
 void setMatr(){
-    cout << "Enter " << rows << 'x' << cols << " numbers of array: " << endl;
+    cout << "Enter numbers in " << rows << 'x' << cols << " massive: " << endl;
         for (int i=0; i<rows; i++){
 			for (int j=0; j<cols; j++){
             cin >> matr[i][j];
  
 }}}
+
+void f(){
+	cout << "My brains can blow off" << endl;   
+    
+	}
+
 };
 	
+	void somF (Array& obj){
+	obj.f();
+}
+
+
 int main()
 {
 	int s;
     cout << "Enter the size of arrays: ";
     cin >> s;
     Array mas1(s);
-    Matrix mas2(s);
     mas1.setArr();
     mas1.getArr();
+    somF(mas1);
     
+    Matrix mas2(s);
     mas2.setMatr();
     mas2.getMatr();
+    somF(mas2);
+    
+    
+   
     return 0;
 }
+
